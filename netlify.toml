@@ -1,6 +1,0 @@
-# dev serve to run on 3001
-[build]
-command = "npm run build"
-
-[dev]
-targetPort = 3001
