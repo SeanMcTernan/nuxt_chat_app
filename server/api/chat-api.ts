@@ -1,19 +1,26 @@
 import OpenAI from 'openai';
 
+interface Message {
+    role: 'assistant' | 'user' | 'system'
+    message: string
+}
+
 export default defineEventHandler(async (event) => {
     const openai = new OpenAI({
         apiKey: process.env.OPENAI_API_KEY
     });
 
-    const completion = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
-        store: true,
-        messages: [
-            { "role": "user", "content": "write a haiku about ai" },
-        ],
-    });
+    // let messages: Message[] = [];
+    const previousMessages = await readBody(event);
+    // messages = messages.concat(previousMessages);
+    console.log(previousMessages);
+    // const completion = await openai.chat.completions.create({
+    //     model: "gpt-4o-mini",
+    //     input: messages
+    // });
 
     return {
-        message: completion.choices[0].message.content
+        // message: completion.choices[0].message.content
+        message: "Hey!"
     };
 });

@@ -1,21 +1,21 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+
+// Define types
 interface Message {
-  role: 'AI' | 'User'
-  message: string
+  role: 'assistant' | 'user' | 'system'
+  content: string
 }
 
-const title = ref('')
+// State
+const title = ref<string>('')
 const fullTitle = 'What would you like to chat about?'
 const typeDelay = 30
-const messages = ref<Message[]>([{ role: 'AI', message: '' }])
-const loading = ref(false)
-const message = ref('')
+const messages = ref<Message[]>([{ role: 'assistant', content: '' }])
+const loading = ref<boolean>(false)
+const message = ref<string>('')
 
-// Typing animation
-onMounted(() => {
-  typeText()
-})
-
+// Methods
 const typeText = async () => {
   for (let i = 0; i < fullTitle.length; i++) {
     await new Promise(resolve => setTimeout(resolve, typeDelay))
@@ -23,12 +23,11 @@ const typeText = async () => {
   }
 }
 
-// Chat functionality
 const scrollToEnd = () => {
   setTimeout(() => {
     const chatMessages = document.querySelector('.chat-messages > div:last-child')
     chatMessages?.scrollIntoView({ behavior: 'smooth', block: 'end' })
-  }, 100)
+  }, 50)
 }
 
 const sendPrompt = async () => {
@@ -36,7 +35,7 @@ const sendPrompt = async () => {
   
   loading.value = true
   messages.value.push({
-    role: 'User',
+    role: 'user',
     message: message.value
   })
 
@@ -52,7 +51,7 @@ const sendPrompt = async () => {
     if (res.ok) {
       const response = await res.json()
       messages.value.push({
-        role: 'AI',
+        role: 'assistant',
         message: response?.message
       })
     } else {
@@ -60,7 +59,7 @@ const sendPrompt = async () => {
     }
   } catch (error) {
     messages.value.push({
-      role: 'AI',
+      role: 'system',
       message: 'Sorry, an error occurred.'
     })
   } finally {
@@ -68,6 +67,11 @@ const sendPrompt = async () => {
     scrollToEnd()
   }
 }
+
+// Initialize typing animation
+onMounted(() => {
+  typeText()
+})
 </script>
 
 <template>
@@ -87,11 +91,11 @@ const sendPrompt = async () => {
             >
               <div 
                 :class="[
-                  msg.role === 'AI' ? 'pr-8' : 'pl-8 ml-auto',
+                  msg.role === 'assistant' ? 'pr-8' : 'pl-8 ml-auto',
                 ]"
               >
                 <div class="p-3 text-sm text-white bg-[#2C2C2C] rounded-2xl" :class="[
-                  msg.role === 'AI' ? 'max-w-[80%]' : ''
+                  msg.role === 'assistant' ? 'max-w-[80%]' : ''
                 ]">
                   {{ msg.message }}
                 </div>
