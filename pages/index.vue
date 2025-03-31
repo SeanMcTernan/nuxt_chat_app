@@ -11,7 +11,7 @@ interface Message {
 const title = ref<string>('')
 const fullTitle = 'What would you like to chat about?'
 const typeDelay = 30
-const messages = ref<Message[]>([{ role: 'assistant', content: '' }])
+const chatHistory = ref<Message[]>([{ role: 'assistant', content: '' }])
 const loading = ref<boolean>(false)
 const message = ref<string>('')
 
@@ -34,9 +34,9 @@ const sendPrompt = async () => {
   if (!message.value) return
   
   loading.value = true
-  messages.value.push({
+  chatHistory.value.push({
     role: 'user',
-    message: message.value
+    content: message.value
   })
 
   scrollToEnd()
@@ -45,22 +45,22 @@ const sendPrompt = async () => {
   try {
     const res = await fetch('/api/chat-api', {
       method: 'POST',
-      body: JSON.stringify(messages.value.slice(1))
+      body: JSON.stringify(chatHistory.value.slice(1))
     })
 
     if (res.ok) {
       const response = await res.json()
-      messages.value.push({
+      chatHistory.value.push({
         role: 'assistant',
-        message: response?.message
+        content: response?.message
       })
     } else {
       throw new Error('API request failed')
     }
   } catch (error) {
-    messages.value.push({
+    chatHistory.value.push({
       role: 'system',
-      message: 'Sorry, an error occurred.'
+      content: 'Sorry, an error occurred.'
     })
   } finally {
     loading.value = false
@@ -85,7 +85,7 @@ onMounted(() => {
         <div class="bg-[#1C1C1C] rounded-2xl shadow-lg h-[70vh] flex flex-col justify-between">
           <div class="h-full overflow-auto chat-messages p-6">
             <div 
-              v-for="(msg, i) in messages" 
+              v-for="(msg, i) in chatHistory" 
               :key="i" 
               class="flex flex-col mb-4"
             >
@@ -97,7 +97,7 @@ onMounted(() => {
                 <div class="p-3 text-sm text-white bg-[#2C2C2C] rounded-2xl" :class="[
                   msg.role === 'assistant' ? 'max-w-[80%]' : ''
                 ]">
-                  {{ msg.message }}
+                  {{ msg.content }}
                 </div>
               </div>
             </div>

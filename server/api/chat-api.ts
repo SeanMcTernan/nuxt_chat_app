@@ -2,7 +2,7 @@ import OpenAI from 'openai';
 
 interface Message {
     role: 'assistant' | 'user' | 'system'
-    message: string
+    content: string
 }
 
 export default defineEventHandler(async (event) => {
@@ -10,17 +10,15 @@ export default defineEventHandler(async (event) => {
         apiKey: process.env.OPENAI_API_KEY
     });
 
-    // let messages: Message[] = [];
+    let messages: Message[] = [];
     const previousMessages = await readBody(event);
-    // messages = messages.concat(previousMessages);
-    console.log(previousMessages);
-    // const completion = await openai.chat.completions.create({
-    //     model: "gpt-4o-mini",
-    //     input: messages
-    // });
+    messages = JSON.parse(previousMessages);
+    const completion = await openai.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages
+    });
 
     return {
-        // message: completion.choices[0].message.content
-        message: "Hey!"
+        message: completion.choices[0].message.content
     };
 });
