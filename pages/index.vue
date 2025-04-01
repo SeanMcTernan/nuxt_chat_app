@@ -81,8 +81,8 @@ onMounted(() => {
         {{ title }}<span class="animate-pulse">|</span>
       </h1>
       
-      <div class="max-w-xl mx-auto w-full">
-        <div class="bg-[#1C1C1C] rounded-2xl shadow-lg h-[70vh] flex flex-col justify-between">
+      <div class="max-w-5xl mx-auto w-full">
+        <div class="bg-[#1C1C1C] rounded-2xl shadow-lg h-[40vh] flex flex-col justify-between">
           <div class="h-full overflow-auto chat-messages p-6">
             <div 
               v-for="(msg, i) in chatHistory" 
@@ -137,16 +137,19 @@ onMounted(() => {
 
       <div class="flex justify-center items-center space-x-6">
         <NuxtLink
-          to="https://nuxt.com/docs"
-          class="flex items-center font-medium underline transition-colors underline-offset-4 hover:text-black/70"
-        >
-          <img src="/nuxt.svg" class="h-6" alt="Nuxt Logo" />
-        </NuxtLink>
-        <NuxtLink
           to="https://netlify.com/"
           class="flex items-center font-medium underline transition-colors underline-offset-4 hover:text-black/70"
         >
           <img src="/netlify.svg" class="h-6" alt="Netlify Logo" />
+        </NuxtLink>
+        <NuxtLink
+          to="https://nuxt.com/docs"
+          :class="[
+            'flex items-center font-medium underline transition-colors underline-offset-4 hover:text-black/70',
+            loading ? 'animate-pulse' : ''
+          ]"
+        >
+          <img src="/nuxt.svg" class="h-6" alt="Nuxt Logo" />
         </NuxtLink>
         <NuxtLink
           to="https://github.com/SeanMcTernan/nuxt_chat_app"
@@ -180,12 +183,12 @@ body {
 }
 
 .loader {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   display: block;
   position: relative;
-  color: #d3d3d3;
+  color: #1F3332;
   box-sizing: border-box;
   animation: animloader 2s linear infinite;
 }
@@ -195,5 +198,15 @@ body {
   25% { box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 2px; }
   50% { box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 2px, -38px 0 0 -2px; }
   75% { box-shadow: 14px 0 0 2px, 38px 0 0 -2px; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-pulse {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 </style>
