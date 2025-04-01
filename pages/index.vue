@@ -45,7 +45,7 @@ const sendPrompt = async () => {
   message.value = ''
 
   try {
-    const res = await fetch('/api/chat-api', {
+    const res = await fetch('/api/open-ai', {
       method: 'POST',
       body: JSON.stringify(chatHistory.value.slice(1))
     })
