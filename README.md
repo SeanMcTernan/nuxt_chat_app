@@ -1,3 +1,5 @@
+![Nuxt & Netlify]([https://images.contentstack.io/v3/assets/blt5e93e46bee7dad91/blt126186d633b3f891/67ec5c075ea260b63ecd4fe7/Screenshot_2025-04-01_at_16.48.08.png](https://images.contentstack.io/v3/assets/blt5e93e46bee7dad91/blt653c659fb4ca5d7f/67ec5e4629f0cd5454185bcb/vue-js.png))
+
 # Nuxt + Netlify AI Starter
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/46648482-644c-4c80-bafb-872057e51b6b/deploy-status)](https://app.netlify.com/sites/next-dev-starter/deploys)
