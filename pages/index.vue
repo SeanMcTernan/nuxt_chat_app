@@ -10,6 +10,7 @@ interface Message {
 // State
 const title = ref<string>('')
 const fullTitle = 'What would you like to chat about?'
+const errorMessage =  'We could not determine your model provider, check your environment variables.'
 const typeDelay = 30
 const chatHistory = ref<Message[]>([{ role: 'assistant', content: '' }])
 const loading = ref<boolean>(false)
@@ -19,9 +20,13 @@ const modelProvider = useRuntimeConfig().public.MODEL_PROVIDER;
 
 // Methods
 const typeText = async () => {
-  for (let i = 0; i < fullTitle.length; i++) {
-    await new Promise(resolve => setTimeout(resolve, typeDelay))
-    title.value = fullTitle.slice(0, i + 1)
+  if (modelProvider === 'anthropic' || modelProvider === 'openai') {
+    for (let i = 0; i < fullTitle.length; i++) {
+      await new Promise(resolve => setTimeout(resolve, typeDelay))
+      title.value = fullTitle.slice(0, i + 1)
+    }
+  } else {
+    title.value = errorMessage
   }
 }
 
