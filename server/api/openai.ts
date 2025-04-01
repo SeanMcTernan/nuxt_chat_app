@@ -21,4 +21,5 @@ export default defineEventHandler(async (event) => {
     return {
         message: completion.choices[0].message.content
     };
+
 });

@@ -7,8 +7,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
-    // Private keys are only available on the server side
-    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+    public: {
+      MODEL_PROVIDER: process.env.MODEL_PROVIDER,
+    },
+    MODEL_API_KEY: process.env.MODEL_API_KEY,
   },
   modules: ['@nuxtjs/tailwindcss']
 })

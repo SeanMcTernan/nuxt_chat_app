@@ -14,6 +14,8 @@ const typeDelay = 30
 const chatHistory = ref<Message[]>([{ role: 'assistant', content: '' }])
 const loading = ref<boolean>(false)
 const message = ref<string>('')
+const modelProvider = useRuntimeConfig().public.MODEL_PROVIDER;
+
 
 // Methods
 const typeText = async () => {
@@ -45,7 +47,8 @@ const sendPrompt = async () => {
   message.value = ''
 
   try {
-    const res = await fetch('/api/open-ai', {
+    console.log(`Provider: ${modelProvider}`)
+    const res = await fetch(`/api/${modelProvider}`, {
       method: 'POST',
       body: JSON.stringify(chatHistory.value.slice(1))
     })
@@ -79,6 +82,29 @@ onMounted(() => {
 <template>
   <div class="min-h-screen bg-gradient flex items-center">
     <div class="max-w-xl mx-auto flex flex-col space-y-8">
+      <div class="flex justify-center mb-4">
+        <div class="logo-container">
+          <img 
+            v-if="modelProvider === 'openai'" 
+            src="/openai.svg" 
+            alt="OpenAI Logo" 
+            class="w-12 h-12"
+          />
+          <img 
+            v-else-if="modelProvider === 'anthropic'" 
+            src="/anthropic.svg" 
+            alt="Anthropic Logo" 
+            class="w-12 h-12"
+          />
+          <img 
+            v-else 
+            src="/model-not-found.svg" 
+            alt="Model Not Found" 
+            class="w-12 h-12"
+          />
+        </div>
+      </div>
+      
       <h1 class="text-2xl font-bold text-center text-white">
         {{ title }}<span class="animate-pulse">|</span>
       </h1>
@@ -206,5 +232,21 @@ body {
 
 .animate-pulse {
   animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.logo-container {
+  animation: pulse 5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }
 </style>
