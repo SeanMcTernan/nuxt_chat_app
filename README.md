@@ -4,7 +4,7 @@
 
 This is a [Nuxt.js](https://nuxt.com/) v3 project bootstrapped with [`create nuxt`](https://github.com/nuxt/cli) and set up to be instantly deployed to [Netlify](https://url.netlify.com/SyTBPVamO)!
 
-This project is a simple chat app that give you the option to deploy either [Anthropics Claude Sonnet](https://www.anthropic.com/claude) or [OpenAI's GPT-4o Mini](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/). It is a very minimal site that includes 2 server functions that call the models depending on what environment variable you set. 
+This project is a simple chat app that gives you the option to deploy either [Anthropics Claude Sonnet](https://www.anthropic.com/claude) or [OpenAI's GPT-4o Mini](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/). It is a very minimal site that includes 2 server functions that call the models depending on what environment variable you set. 
 
 With Netlify, you'll have access to features like [Branch Deploys](https://docs.netlify.com/site-deploys/overview/#branches-and-deploys) and [Deploy Previews](https://docs.netlify.com/deploy-preview/), so we encourage you to deploy this, modify it, learn and have fun!
 
