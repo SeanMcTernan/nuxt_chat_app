@@ -17,7 +17,7 @@ With Netlify, you'll have access to features like [Branch Deploys](https://docs.
 - [Getting Started](#getting-started)
 - [Installation options](#installation-options)
 - [App Images](#app-images)
-- 
+  
 ## Getting Started
 
 Make sure to install dependencies:
