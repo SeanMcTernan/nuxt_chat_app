@@ -71,7 +71,7 @@ You can start editing the page by modifying `pages/index.vue`. The page auto-upd
 
 1. Clone this repo: `git clone https://github.com/SeanMcTernan/nuxt_chat_app.git`
 2. Navigate to the directory and run `npm install`
-3. Run `npm run dev`
+3. Run `npm run dev` or `ntl dev`
 4. Make your changes
 
 ## App Images
