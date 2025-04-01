@@ -23,6 +23,7 @@ const typeText = async () => {
   }
 }
 
+//Scroll messages as they are added
 const scrollToEnd = () => {
   setTimeout(() => {
     const chatMessages = document.querySelector('.chat-messages > div:last-child')
@@ -30,6 +31,7 @@ const scrollToEnd = () => {
   }, 50)
 }
 
+//Send prompt to API
 const sendPrompt = async () => {
   if (!message.value) return
   
@@ -84,6 +86,7 @@ onMounted(() => {
       <div class="max-w-5xl mx-auto w-full">
         <div class="bg-[#1C1C1C] rounded-2xl shadow-lg h-[40vh] flex flex-col justify-between">
           <div class="h-full overflow-auto chat-messages p-6">
+          <!-- Chat box and chat history -->
             <div 
               v-for="(msg, i) in chatHistory" 
               :key="i" 
@@ -111,11 +114,6 @@ onMounted(() => {
 
           <form @submit.prevent="sendPrompt" class="p-4 bg-[#1C1C1C] border-t border-[#2C2C2C] rounded-b-2xl">
             <div class="flex items-center w-full gap-2">
-              <button type="button" class="p-2 text-gray-400 hover:text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
-                </svg>
-              </button>
               <input
                 v-model="message"
                 type="text"
@@ -188,7 +186,7 @@ body {
   border-radius: 50%;
   display: block;
   position: relative;
-  color: #1F3332;
+  color: #2C2C2C;
   box-sizing: border-box;
   animation: animloader 2s linear infinite;
 }
