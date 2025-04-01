@@ -9,14 +9,13 @@ interface Message {
 
 // State
 const title = ref<string>('')
-const fullTitle = 'What would you like to chat about?'
+const fullTitle = 'This is Nuxt on Netlify, start chatting below...'
 const errorMessage =  'We could not determine your model provider, check your environment variables.'
 const typeDelay = 30
 const chatHistory = ref<Message[]>([{ role: 'assistant', content: '' }])
 const loading = ref<boolean>(false)
 const message = ref<string>('')
-const modelProvider = useRuntimeConfig().public.MODEL_PROVIDER;
-
+const modelProvider = (useRuntimeConfig().public.MODEL_PROVIDER || '').toLowerCase();
 
 // Methods
 const typeText = async () => {
@@ -85,7 +84,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gradient flex items-center">
+  <div class="min-h-screen bg-gradient flex items-center px-4 md:px-8">
     <div class="max-w-xl mx-auto flex flex-col space-y-8">
       <div class="flex justify-center mb-4">
         <div class="logo-container">
@@ -245,13 +244,13 @@ body {
 
 @keyframes pulse {
   0% {
-    opacity: 0.5;
+    opacity: 0.3;
   }
   50% {
     opacity: 1;
   }
   100% {
-    opacity: 0.5;
+    opacity: 0.3;
   }
 }
 </style>
