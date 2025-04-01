@@ -36,8 +36,8 @@ yarn install
 bun install
 ```
 
-First, run the development server:
-If you have the [Netlify CLI](https://github.com/netlify/cli) installed, you can run:
+First, run the development server,
+if you have the [Netlify CLI](https://github.com/netlify/cli) installed, you can run:
 
 ```bash
 netlify dev
