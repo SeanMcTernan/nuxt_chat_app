@@ -81,10 +81,15 @@ You can start editing the page by modifying `pages/index.vue`. The page auto-upd
 Currently this Nuxt site supports Anthropic's Claude's Sonnet and Open AI's GPT 4o Mini please enter them exactle as you see them below to avoid errors:
 
 **MODEL_PROVIDER:** 
-```anthropic
-# or
+```
 openai
 ```
+#or 
+
+```
+anthropic
+```
+
 **MODEL_API_KEY:** 
 ```
 sk-proj-******** your key ***
