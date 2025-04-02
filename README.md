@@ -84,7 +84,7 @@ Currently this Nuxt site supports Anthropic's Claude's Sonnet and Open AI's GPT 
 ```
 openai
 ```
-#or 
+or 
 
 ```
 anthropic
