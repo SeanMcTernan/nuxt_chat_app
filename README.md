@@ -76,6 +76,19 @@ You can start editing the page by modifying `pages/index.vue`. The page auto-upd
 3. Run `npm run dev` or `ntl dev`
 4. Make your changes
 
+### Environment Variables
+
+Currently this Nuxt site supports Anthropic's Claude's Sonnet and Open AI's GPT 4o Mini please enter them exactle as you see them below to avoid errors:
+
+**MODEL_PROVIDER:** 
+```anthropic
+# or
+openai
+```
+**MODEL_API_KEY:** 
+```
+sk-proj-******** your key ***
+```
 ## App Images
 
 The application using OpenAIs GPT 4o-Mini
