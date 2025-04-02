@@ -76,7 +76,7 @@ You can start editing the page by modifying `pages/index.vue`. The page auto-upd
 
 ### Environment Variables
 
-Currently this Nuxt site supports Anthropic's Claude's Sonnet and Open AI's GPT 4o Mini please enter them exactle as you see them below to avoid errors:
+Currently this Nuxt site supports Anthropics Claude's Sonnet and Open AI's GPT 4o Mini please enter them exactly as you see them below to avoid errors:
 
 **MODEL_PROVIDER:** 
 ```
@@ -98,10 +98,10 @@ This project will deploy a live site available all over the web. If you do not w
 
 ## App Images
 
-The application using OpenAIs GPT 4o-Mini
+The application using OpenAI's GPT-4o Mini: A screenshot showing the chat interface with a response from the OpenAI model.
 
 ![Nuxt Chat App With OpenAI](https://images.contentstack.io/v3/assets/blt5e93e46bee7dad91/blt126186d633b3f891/67ec5c075ea260b63ecd4fe7/Screenshot_2025-04-01_at_16.48.08.png)
 
-The application using Anthropic's Claude 3.7 Sonnet
+The application using Anthropic's Claude 3.7 Sonnet: A screenshot showing the chat interface with a response from the Anthropic model.
 
 ![Nuxt Chat App With Anthropic](https://images.contentstack.io/v3/assets/blt5e93e46bee7dad91/blt727db09fa59f1ed1/67ec5c07deb0561ad8b03415/Screenshot_2025-04-01_at_16.49.29.png)
