@@ -16,7 +16,7 @@ With Netlify, you'll have access to features like [Branch Deploys](https://docs.
 
 ⚠️ **Warning** ⚠️
 
-This project will deploy a live site available all over the web. If you do not want your Model being hit directly from the public internet, we recommend locking your site on Netlify using [Site Protection]([url](https://docs.netlify.com/security/secure-access-to-sites/site-protection/#basic-password-protection-versus-team-login-protection))
+This project will deploy a live site available all over the web. If you do not want your Model being hit directly from the public internet, we recommend locking your site on Netlify using [Site Protection](https://docs.netlify.com/security/secure-access-to-sites/site-protection/#basic-password-protection-versus-team-login-protection)
 
 ## Table of Contents:
 
