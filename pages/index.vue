@@ -16,6 +16,7 @@ const chatHistory = ref<Message[]>([{ role: 'assistant', content: '' }])
 const loading = ref<boolean>(false)
 const message = ref<string>('')
 const modelProvider = (useRuntimeConfig().public.MODEL_PROVIDER || '').toLowerCase();
+const deployToNetlifyActive = ref<boolean>(false);
 
 // Methods
 const typeText = async () => {
@@ -63,6 +64,7 @@ const sendPrompt = async () => {
         role: 'assistant',
         content: response?.message
       })
+      deployToNetlifyActive.value = true;
     } else {
       throw new Error('API request failed')
     }
@@ -139,6 +141,19 @@ onMounted(() => {
               class="p-4 ml-10 mr-auto"
             >
               <span class="loader" />
+            </div>
+            <div 
+              v-if="loading" 
+              class="p-4 ml-10 mr-auto"
+            >
+              <span class="loader" />
+            </div>
+            <div class="flex-grow flex justify-center items-center mt-[-4rem]">
+              <div v-if="deployToNetlifyActive">
+                <a href="https://app.netlify.com/start/deploy?repository=https://github.com/SeanMcTernan/nuxt_chat_app&utm_source=github&utm_medium=nuxt-chat-app&utm_campaign=solutions-engineering" target="_blank">
+                  <img src="/deploy.svg" alt="Deploy to Netlify Button" class="w-[15rem] h-[15rem]" />
+                </a>
+              </div>
             </div>
           </div>
 
