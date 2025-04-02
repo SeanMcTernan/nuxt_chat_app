@@ -2,9 +2,9 @@
 
 # Nuxt + Netlify AI Starter
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/46648482-644c-4c80-bafb-872057e51b6b/deploy-status)](https://app.netlify.com/sites/next-dev-starter/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d5efd8aa-ae58-4fae-8633-c8c35c46bf3e/deploy-status)](https://app.netlify.com/sites/nuxt-ai-chat/deploys)
 
-This is a [Nuxt.js](https://nuxt.com/) v3 project bootstrapped with [`create nuxt`](https://github.com/nuxt/cli) and set up to be instantly deployed to [Netlify](https://url.netlify.com/SyTBPVamO)!
+This is a [Nuxt.js](https://nuxt.com/) v3 project bootstrapped with [`create nuxt`](https://github.com/nuxt/cli) and set up to be instantly deployed to [Netlify](https://url.netlify.com/SyTBPVamO)! You can take a look at the live version of the site [here](https://nuxt-ai-chat.netlify.app).
 
 This project is a simple chat app that gives you the option to deploy either [Anthropics Claude Sonnet](https://www.anthropic.com/claude) or [OpenAI's GPT-4o Mini](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/). It is a very minimal site that includes 2 server functions that call the models depending on what environment variable you set. 
 
