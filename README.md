@@ -15,7 +15,8 @@ With Netlify, you'll have access to features like [Branch Deploys](https://docs.
 (If you click this button, it will create a new repo for you that looks exactly like this one, and sets that repo up immediately for deployment on Netlify)
 
 **Warning**
-⚠️ This will deploy a live site available all over the web. If you do not want your Model being hit directly from the public internet, we recommend locking your site on Netlify using [Site Protection]([url](https://docs.netlify.com/security/secure-access-to-sites/site-protection/#basic-password-protection-versus-team-login-protection))⚠️  
+
+⚠️ This will deploy a live site available all over the web. If you do not want your Model being hit directly from the public internet, we recommend locking your site on Netlify using [Site Protection]([url](https://docs.netlify.com/security/secure-access-to-sites/site-protection/#basic-password-protection-versus-team-login-protection))
 
 ## Table of Contents:
 
